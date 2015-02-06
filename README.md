@@ -1,4 +1,5 @@
-# Simple SoundCloud
+# Simple SoundCloud [![Build Status](https://travis-ci.org/bookyacom/simple-soundcloud.svg)](https://travis-ci.org/bookyacom/simple-soundcloud)
+
 > Access SoundCloud's public resources apis without OAuth, only client Id
 
 from [SoundCloud](https://developers.soundcloud.com/docs/api/reference)
