@@ -72,7 +72,7 @@ Example
 ```
 
 #### `.tracks()` -> `Promise`
-returns `Array` of tracks, [more info](https://developers.soundcloud.com/docs/api/reference#tracks)
+returns `Array` of tracks, [more info](https://developers.soundcloud.com/docs/api/reference#tracks)  
 Example
 ```js
 [{
@@ -141,14 +141,14 @@ Example
 }]
 ```
 #### `.playlists()` -> `Promise`
-returns `Array` of playlists, [more info](https://developers.soundcloud.com/docs/api/reference#playlists)
+returns `Array` of playlists, [more info](https://developers.soundcloud.com/docs/api/reference#playlists)  
 Example
 ```js
 
 ```
 
 #### `.followings()` -> `Promise`
-returns `Array` of followings, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of followings, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
 [{ id: 8,
@@ -181,7 +181,7 @@ Example
 ```
 
 #### `.followers()` -> `Promise`
-returns `Array` of followers, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of followers, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
 [{ id: 104100819,
@@ -214,7 +214,7 @@ Example
 ```
 
 #### `.comments()` -> `Promise`
-returns `Array` of comments, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of comments, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
 [{ kind: 'comment',
@@ -238,7 +238,7 @@ Example
 ```
 
 #### `.favorites()` -> `Promise`
-returns `Array` of favorites, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of favorites, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
  [{ kind: 'track',
@@ -297,16 +297,55 @@ Example
 ```
 
 #### `.groups()` -> `Promise`
-returns `Array` of groups, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of groups, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
 
 ```
 
 #### `.webProfiles()` -> `Promise`
-returns `Array` of web profiles, [more info](https://developers.soundcloud.com/docs/api/reference#users)
+returns `Array` of web profiles, [more info](https://developers.soundcloud.com/docs/api/reference#users)  
 Example
 ```js
+
+```
+
+### SoundCloud resolve API
+#### `SimpleSoundCloud.resolve(<String>)` -> `User Object`
+##### Arguments
+Type: `String`  
+SoundCloud user's link, eg: http://soundcloud.com/alexis  
+returns User's details `Object`  
+Example
+```js
+ {
+   id: 1,
+   kind: 'user',
+   permalink: 'alexis',
+   username: 'alexis',
+   last_modified: '2015/02/05 23:34:05 +0000',
+   uri: 'https://api.soundcloud.com/users/1',
+   permalink_url: 'http://soundcloud.com/alexis',
+   avatar_url: 'https://i1.sndcdn.com/avatars-000000000141-2d728f-large.jpg',
+   country: 'Sweden',
+   first_name: 'Alexis',
+   last_name: 'Fellenius',
+   full_name: 'Alexis Fellenius',
+   description: 'Designer for the web.',
+   city: 'Stockholm',
+   discogs_name: null,
+   myspace_name: null,
+   website: null,
+   website_title: null,
+   online: false,
+   track_count: 3,
+   playlist_count: 0,
+   plan: 'Free',
+   public_favorites_count: 6,
+   followers_count: 8708,
+   followings_count: 22,
+   subscriptions: []
+ }
 
 ```
 

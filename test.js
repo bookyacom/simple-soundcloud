@@ -47,7 +47,7 @@ test('#simple sound cloud user apis', function(t) {
     });
 
     var user = new ScUser(scId, scName);
-    
+
     user.details()
       .then(function(user) {
         st.notOk(user);
@@ -66,7 +66,7 @@ test('#simple sound cloud user apis', function(t) {
     });
 
     var user = new ScUser(scId, scName);
-    
+
     user.details()
       .catch(function(error) {
         st.type(error, "object");
@@ -94,6 +94,24 @@ test('#simple sound cloud user apis', function(t) {
     user.tracks()
       .then(function(results) {
         st.equal(Array.isArray(results), true);
+        st.end();
+      });
+  });
+
+  t.test('test resolve api', function(st) {
+    var resolve = proxyquire('./lib/resolve', {
+      './request': function(path, qs) {
+        st.ok(path, 'path found');
+        st.ok(qs, 'qs found');
+        st.equal(path, 'resolve');
+        return bluebird.resolve({
+          id: 1
+        });
+      }
+    });
+
+    resolve('http://bookya.com')
+      .then(function(user) {
         st.end();
       });
   });
