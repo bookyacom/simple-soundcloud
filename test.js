@@ -9,13 +9,15 @@ var scId = '123';
 var scName = 'alexis'; // user id = 1
 
 test('#simple soundcloud unit tests', function(t) {
-
   t.test('clientId as first parameter', function(st) {
     var SC = proxyquire('./', {
       './lib/user': function(id, name) {
         st.equal(scId, id);
         st.equal(scName, name);
         st.end();
+        return bluebird.resolve({
+          collection: []
+        });
       }
     });
     var sc = SC(scId);
@@ -30,8 +32,13 @@ test('#simple sound cloud user apis', function(t) {
           st.equal('users', path);
           st.equal(scId, qs.client_id);
           st.equal(scName, qs.q);
+          st.equal(qs.limit, 100);
+          st.equal(qs.offset, 0);
+          st.equal(qs.linked_partitioning, 1);
           st.end();
-          return bluebird.resolve({});
+          return bluebird.resolve({
+            collection: []
+          });
       }
     });
     var user = new ScUser(scId, scName);
@@ -40,9 +47,9 @@ test('#simple sound cloud user apis', function(t) {
   t.test('test user details', function(st) {
     var ScUser = proxyquire('./lib/user', {
       './request': function(path, qs) {
-          return bluebird.resolve([{
-            id: 123
-          }]);
+          return bluebird.resolve({
+            collection: []
+          });
       }
     });
 
@@ -79,11 +86,13 @@ test('#simple sound cloud user apis', function(t) {
     var ScUser = proxyquire('./lib/user', {
       './request': function(path, qs) {
         if(path === 'users') {
-          return bluebird.resolve([
-            {
-            id: 12,
-            permalink_url: 'http://' + scName
-          }]);
+          return bluebird.resolve({
+            collection: [
+              {
+              id: 12,
+              permalink_url: 'http://' + scName
+            }]
+          });
         } else {
           return bluebird.resolve([]);
         }
