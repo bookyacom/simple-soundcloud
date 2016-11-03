@@ -1,4 +1,4 @@
-# Simple SoundCloud [![Build Status](https://travis-ci.org/bookyacom/simple-soundcloud.svg)](https://travis-ci.org/bookyacom/simple-soundcloud)
+# Simple SoundCloud [![Build Status](https://travis-ci.org/bookyacom/simple-soundcloud.svg)](https://travis-ci.org/bookyacom/simple-soundcloud) [![Dependency Status](https://gemnasium.com/badges/github.com/bookyacom/simple-soundcloud.svg)](https://gemnasium.com/github.com/bookyacom/simple-soundcloud)
 
 > Access SoundCloud's public resources apis without OAuth, only client Id
 
